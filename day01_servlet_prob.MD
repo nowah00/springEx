@@ -1,6 +1,6 @@
 ## 1) HelloServlet & 매핑
 
-    **요구사항**
+**요구사항**
 
 - `/hello`로 GET 요청 시 `안녕하세요, 서블릿!` 출력
 - 응답 Content-Type을 `text/html; charset=UTF-8`로 설정
@@ -52,7 +52,83 @@ public class ProbServlet extends HttpServlet {
   3 mul  2  전송 시  ⇒  출력: 3  *  2 = 6
   3 div   2  전송 시 ⇒   출력:  3 / 2  = 1
 
-# 개념문제
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>사칙연산 프로그램</title>
+    <script>
+        function send(op) {
+            const f = document.frmCalculate;
+            if (!f.x.value || !f.y.value) {
+                alert('숫자를 입력하세요.');
+                return;
+            }
+            document.getElementById('op').value = op;
+            f.submit();
+        }
+    </script>
+</head>
+<body>
+<form name="frmCalculate" method="get" action="/calc">
+    첫번째 숫자: <input type="number" name="x"><br>
+    두번째 숫자: <input type="number" name="y"><br>
+    <input type="hidden" name="op" id="op">
+    <button type="button" onclick="send('add')">+</button>
+    <button type="button" onclick="send('sub')">-</button>
+    <button type="button" onclick="send('mul')">×</button>
+    <button type="button" onclick="send('div')">÷</button>
+</form>
+</body>
+</html>
+```
+
+```java
+@WebServlet("/calc")
+public class CalcServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.setContentType("text/html;charset=UTF-8");
+        String sx = req.getParameter("x");
+        String sy = req.getParameter("y");
+        String op = req.getParameter("op");
+
+        Integer x, y;
+        x = Integer.parseInt(sx);
+        y = Integer.parseInt(sy);
+
+        String result;
+        String c;
+
+        switch (op) {
+            case "add":
+                c = "+";
+                result = String.valueOf(x + y);
+                break;
+            case "sub":
+                c = "-";
+                result = String.valueOf(x - y);
+                break;
+            case "mul":
+                c = "*";
+                result = String.valueOf(x * y);
+                break;
+            case "div":
+                c = "/";
+                result = String.valueOf(x / y);
+                break;
+            default:
+                c = "null";
+                result = "지원하지 않는 op";
+        }
+
+        try (PrintWriter out = resp.getWriter()) {
+            out.println("<html><body><h2>" + x + c + y + " = " + result + "</h2></body></html>");
+        }
+    }
+}
+```
 
 1. (OX) 서블릿 수명주기 기본 순서는 `init()` → `service()` → `destroy()` 이다.
 - O
@@ -84,7 +160,7 @@ public class ProbServlet extends HttpServlet {
    A) `getAttribute`  **B) `getParameter`**  C) `getHeader`  D) `getCookie`
 
 3. WAS 란 무엇이고 상용화 프로그램 종류2가지
-- → 웹서버 + 웹컨테이너 기능을 제공, JSP·Servlet 실행 담당 예: **Tomcat**, **Jeus**, **WebLogic**, **WebSphere**
+- → 웹서버 + 웹컨테이너 기능을 제공, JSP·Servlet 실행 담당 예: **Tomcat**, **Jeus**
 
 1. 응답객체에 클라이언트에 전송할 데이터를 쓸 때 사용되는 클래스와 메서드는 무엇인가?
 - **PrintWriter out = response.getWriter();** → out.println("출력내용");
@@ -95,4 +171,4 @@ public class ProbServlet extends HttpServlet {
 - @WebServlet("/my")
 
 1. 클라이언트가 서버에 요청시 해당 요청을 처리하는 서블릿을 연결해주는 배치관리자 역할의 파일명은 무엇이고  프로젝트에서의 위치(디렉토리명)는 어디인가?
-- **web.xml**, 위치는 **WEB-INF/** 디렉터리 내부 (/WEB-INF/web.xml)
+- **web.xml**, 위치는 **WEB-INF** 

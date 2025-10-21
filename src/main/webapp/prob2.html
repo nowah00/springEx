@@ -3,39 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>사칙연산 프로그램</title>
-    <script type="text/javascript">
-        function fn_calculate(option) {
-            const frm = document.frmCalculate;
-            const a = Number(frm.first_num.value);
-            const b = Number(frm.second_num.value);
-
-            if (isNaN(a) || isNaN(b)) {
-                alert("숫자를 입력하세요.");
+    <script>
+        function send(op) {
+            const f = document.frmCalculate;
+            if (!f.x.value || !f.y.value) {
+                alert('숫자를 입력하세요.');
                 return;
             }
-
-            let result;
-            switch (option) {
-                case 'add': result = a + b; break;
-                case 'sub': result = a - b; break;
-                case 'mul': result = a * b; break;
-                case 'div': result = a / b; break;
-            }
-
-            frmCalculate.method = "get"
-            frmCalculate.action = "calc?x=10&y=3&op=add"
-            frmCalculate.submit();
+            document.getElementById('op').value = op;
+            f.submit();
         }
     </script>
 </head>
 <body>
-<form name="frmCalculate">
-    첫번째 숫자: <input type="number" name="first_num"><br>
-    두번째 숫자: <input type="number" name="second_num"><br><br>
-    <input type="button" value="+" onclick="fn_calculate('add')">
-    <input type="button" value="-" onclick="fn_calculate('sub')">
-    <input type="button" value="×" onclick="fn_calculate('mul')">
-    <input type="button" value="÷" onclick="fn_calculate('div')">
+<form name="frmCalculate" method="get" action="/calc">
+    첫번째 숫자: <input type="number" name="x"><br>
+    두번째 숫자: <input type="number" name="y"><br>
+    <input type="hidden" name="op" id="op">
+    <button type="button" onclick="send('add')">+</button>
+    <button type="button" onclick="send('sub')">-</button>
+    <button type="button" onclick="send('mul')">×</button>
+    <button type="button" onclick="send('div')">÷</button>
 </form>
 </body>
 </html>

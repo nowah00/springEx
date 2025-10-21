@@ -1,4 +1,4 @@
-package com.ssg.springex;
+package com.ssg.springex.loginServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/login3")
-public class LoginServletJs extends HttpServlet {
+public class LoginServlet3 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("LoginServlet doGet");

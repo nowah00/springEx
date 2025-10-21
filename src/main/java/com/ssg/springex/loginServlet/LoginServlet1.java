@@ -1,4 +1,4 @@
-package com.ssg.springex;
+package com.ssg.springex.loginServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/login1")
-public class LoginServlet extends HttpServlet {
+public class LoginServlet1 extends HttpServlet {
     @Override
     public void init() throws ServletException {
         System.out.println("LoginServlet init");

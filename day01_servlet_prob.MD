@@ -132,7 +132,7 @@ public class CalcServlet extends HttpServlet {
 
 1. (OX) 서블릿 수명주기 기본 순서는 `init()` → `service()` → `destroy()` 이다.
 - O
-1. `doGet`과 `doPost`의 올바른 설명은?
+2. `doGet`과 `doPost`의 올바른 설명은?
 
    A) `doGet`은 보안에 강하므로 비밀번호 전송에 권장된다
 
@@ -143,32 +143,32 @@ public class CalcServlet extends HttpServlet {
    D) 둘 다 브라우저가 자동 캐시를 막는다
 
 
-1. 한글 응답 본문이 깨질 때 **반드시** 설정해야 하는 응답 헤더(또는 API)는?
-- 1. **response.setContentType(“text/html; charset=UTF-8”);**
-1. 다음 중 **상태 코드**와 의미가 맞는 것은?
+3. 한글 응답 본문이 깨질 때 **반드시** 설정해야 하는 응답 헤더(또는 API)는?
+- **response.setContentType(“text/html; charset=UTF-8”);**
+4.  다음 중 **상태 코드**와 의미가 맞는 것은?
 
-   A) 200 - Redirect 완료
+    A) 200 - Redirect 완료
 
-   **B) 302 - 임시 리다이렉트**
+    **B) 302 - 임시 리다이렉트**
 
-   C) 404 - 서버 내부 오류
+    C) 404 - 서버 내부 오류
 
-   D) 500 - 리소스를 찾을 수 없음
+    D) 500 - 리소스를 찾을 수 없음
 
-2. 쿼리 파라미터를 읽는 메서드는?
+5.  쿼리 파라미터를 읽는 메서드는?
 
-   A) `getAttribute`  **B) `getParameter`**  C) `getHeader`  D) `getCookie`
+    A) `getAttribute`  **B) `getParameter`**  C) `getHeader`  D) `getCookie`
+    
+6. WAS 란 무엇이고 상용화 프로그램 종류2가지
+- 웹서버 + 웹컨테이너 기능을 제공, JSP·Servlet 실행 담당 예: **Tomcat**, **Jeus**
 
-3. WAS 란 무엇이고 상용화 프로그램 종류2가지
-- → 웹서버 + 웹컨테이너 기능을 제공, JSP·Servlet 실행 담당 예: **Tomcat**, **Jeus**
-
-1. 응답객체에 클라이언트에 전송할 데이터를 쓸 때 사용되는 클래스와 메서드는 무엇인가?
+7. 응답객체에 클라이언트에 전송할 데이터를 쓸 때 사용되는 클래스와 메서드는 무엇인가?
 - **PrintWriter out = response.getWriter();** → out.println("출력내용");
 
-1. 클라이언트가 서버에 접속했을때 WAS 부여해 주는 2가지 객체는 ?
+8. 클라이언트가 서버에 접속했을때 WAS 부여해 주는 2가지 객체는 ?
 - **HttpServletRequest**, **HttpServletResponse**
-1. 서블릿을 WAS 등록할때 사용되는 어노테이션은 무엇이고,  해당 서블릿의 이름이  myServlet 이고  my란 요청명으로  등록 방법은?
+9. 서블릿을 WAS 등록할때 사용되는 어노테이션은 무엇이고,  해당 서블릿의 이름이  myServlet 이고  my란 요청명으로  등록 방법은?
 - @WebServlet("/my")
 
-1. 클라이언트가 서버에 요청시 해당 요청을 처리하는 서블릿을 연결해주는 배치관리자 역할의 파일명은 무엇이고  프로젝트에서의 위치(디렉토리명)는 어디인가?
+10. 클라이언트가 서버에 요청시 해당 요청을 처리하는 서블릿을 연결해주는 배치관리자 역할의 파일명은 무엇이고  프로젝트에서의 위치(디렉토리명)는 어디인가?
 - **web.xml**, 위치는 **WEB-INF** 

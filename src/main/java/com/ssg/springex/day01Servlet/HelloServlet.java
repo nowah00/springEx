@@ -1,4 +1,4 @@
-package com.ssg.springex;
+package com.ssg.springex.day01Servlet;
 
 import java.io.*;
 import javax.servlet.http.*;

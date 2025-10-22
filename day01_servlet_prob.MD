@@ -59,14 +59,14 @@ public class ProbServlet extends HttpServlet {
     <meta charset="UTF-8">
     <title>사칙연산 프로그램</title>
     <script>
-        function send(op) {
-            const f = document.frmCalculate;
-            if (!f.x.value || !f.y.value) {
+        function send(option) {
+            const frmC = document.frmCalculate;
+            if (!frmC.x.value || !frmC.y.value) {
                 alert('숫자를 입력하세요.');
                 return;
             }
-            document.getElementById('op').value = op;
-            f.submit();
+            document.getElementById('option').value = option;
+            frmC.submit();
         }
     </script>
 </head>
@@ -74,7 +74,7 @@ public class ProbServlet extends HttpServlet {
 <form name="frmCalculate" method="get" action="/calc">
     첫번째 숫자: <input type="number" name="x"><br>
     두번째 숫자: <input type="number" name="y"><br>
-    <input type="hidden" name="op" id="op">
+    <input type="hidden" name="option" id="option">
     <button type="button" onclick="send('add')">+</button>
     <button type="button" onclick="send('sub')">-</button>
     <button type="button" onclick="send('mul')">×</button>
@@ -92,7 +92,7 @@ public class CalcServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         String sx = req.getParameter("x");
         String sy = req.getParameter("y");
-        String op = req.getParameter("op");
+        String option = req.getParameter("option");
 
         Integer x, y;
         x = Integer.parseInt(sx);
@@ -101,7 +101,7 @@ public class CalcServlet extends HttpServlet {
         String result;
         String c;
 
-        switch (op) {
+        switch (option) {
             case "add":
                 c = "+";
                 result = String.valueOf(x + y);
@@ -120,7 +120,7 @@ public class CalcServlet extends HttpServlet {
                 break;
             default:
                 c = "null";
-                result = "지원하지 않는 op";
+                result = "지원하지 않는 option";
         }
 
         try (PrintWriter out = resp.getWriter()) {

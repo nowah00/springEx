@@ -14,7 +14,7 @@ public class CalcServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         String sx = req.getParameter("x");
         String sy = req.getParameter("y");
-        String op = req.getParameter("op");
+        String option = req.getParameter("option");
 
         Integer x, y;
         x = Integer.parseInt(sx);
@@ -23,7 +23,7 @@ public class CalcServlet extends HttpServlet {
         String result;
         String c;
 
-        switch (op) {
+        switch (option) {
             case "add":
                 c = "+";
                 result = String.valueOf(x + y);
@@ -42,7 +42,7 @@ public class CalcServlet extends HttpServlet {
                 break;
             default:
                 c = "null";
-                result = "지원하지 않는 op";
+                result = "지원하지 않는 option";
         }
 
         try (PrintWriter out = resp.getWriter()) {

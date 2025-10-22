@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>사칙연산 프로그램</title>
     <script>
-        function send(op) {
-            const f = document.frmCalculate;
-            if (!f.x.value || !f.y.value) {
+        function send(option) {
+            const frmC = document.frmCalculate;
+            if (!frmC.x.value || !frmC.y.value) {
                 alert('숫자를 입력하세요.');
                 return;
             }
-            document.getElementById('op').value = op;
-            f.submit();
+            document.getElementById('option').value = option;
+            frmC.submit();
         }
     </script>
 </head>
@@ -19,7 +19,7 @@
 <form name="frmCalculate" method="get" action="/calc">
     첫번째 숫자: <input type="number" name="x"><br>
     두번째 숫자: <input type="number" name="y"><br>
-    <input type="hidden" name="op" id="op">
+    <input type="hidden" name="option" id="option">
     <button type="button" onclick="send('add')">+</button>
     <button type="button" onclick="send('sub')">-</button>
     <button type="button" onclick="send('mul')">×</button>

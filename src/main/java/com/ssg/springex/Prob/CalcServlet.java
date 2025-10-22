@@ -1,4 +1,4 @@
-package com.ssg.springex.servletProb;
+package com.ssg.springex.Prob;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

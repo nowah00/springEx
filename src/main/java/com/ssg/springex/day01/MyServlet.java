@@ -1,4 +1,4 @@
-package com.ssg.springex.day01Servlet;
+package com.ssg.springex.day01;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

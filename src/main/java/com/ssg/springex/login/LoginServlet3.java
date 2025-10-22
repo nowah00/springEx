@@ -1,4 +1,4 @@
-package com.ssg.springex.loginServlet;
+package com.ssg.springex.login;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

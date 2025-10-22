@@ -6,7 +6,7 @@
 
 <!--    <servlet>-->
 <!--        <servlet-name>firstServlet</servlet-name>-->
-<!--        <servlet-class>com.ssg.springex.day01Servlet.FirstServlet</servlet-class>-->
+<!--        <servlet-class>com.ssg.springex.day01.FirstServlet</servlet-class>-->
 <!--    </servlet>-->
 <!--    <servlet-mapping>-->
 <!--        <servlet-name>firstServlet</servlet-name>-->
